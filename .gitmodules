@@ -1,0 +1,3 @@
+[submodule "Chapter03/07_Submodules/external/json"]
+	path = Chapter03/07_Submodules/external/json
+	url = https://github.com/nlohmann/json
