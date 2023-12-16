@@ -36,8 +36,6 @@ html/
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
 # Executables
 *.i*86
 *.x86_64
