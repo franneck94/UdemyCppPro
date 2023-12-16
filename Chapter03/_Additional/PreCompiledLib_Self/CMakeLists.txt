@@ -18,6 +18,6 @@ else()
     target_link_libraries(
         ${EXECUTABLE_NAME}
         PUBLIC
-            ${CMAKE_SOURCE_DIR}/external/lib/LibExample.a
+            ${CMAKE_SOURCE_DIR}/external/lib/libLibExample.a
         )
 endif()
