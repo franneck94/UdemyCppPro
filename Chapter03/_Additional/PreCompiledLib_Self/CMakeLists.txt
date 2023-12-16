@@ -12,6 +12,8 @@ add_executable(${EXECUTABLE_NAME} main.cc)
 target_include_directories(${EXECUTABLE_NAME}
                            PUBLIC ${CMAKE_SOURCE_DIR}/external/inc)
 
+# .lib/.a (static)
+# .dll/.so (dynamic)
 if(MSVC)
     target_link_libraries(
         ${EXECUTABLE_NAME}
