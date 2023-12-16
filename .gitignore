@@ -40,7 +40,6 @@ html/
 *.i*86
 *.x86_64
 *.hex
-*.app
 *.stackdump
 *.exe
 *.out
@@ -125,7 +124,6 @@ _Chutzpah*
 
 # Visual C++ cache files
 ipch/
-*.aps
 *.ncb
 *.opendb
 *.opensdf
@@ -142,3 +140,4 @@ ipch/
 
 # Visual Studio Trace Files
 *.e2e
+!Chapter03/_Additional/PreCompiledLib_Self/external/lib/libLibExample.a
