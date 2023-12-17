@@ -1,0 +1,17 @@
+{
+  "configurations": [
+    {
+      "name": "windows-cygwin-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**"
+      ],
+      "compilerPath": "C:/cygwin64/bin/gcc.exe",
+      "cStandard": "c99",
+      "cppStandard": "c++11",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerArgs": [],
+      "compileCommands": "${workspaceFolder}/3_CMake/build/compile_commands.json"
+    }
+  ],
+  "version": 4
+}
