@@ -32,7 +32,7 @@ endif()
 
 if(ENABLE_SANITIZE_ADDR OR ENABLE_SANITIZE_UNDEF)
     include(Sanitizer)
-    add_sanitizer_flags()
+    add_sanitizer_flags(ENABLE_SANITIZE_ADDR ENABLE_SANITIZE_UNDEF)
 endif()
 
 if(ENABLE_LTO)
@@ -42,9 +42,9 @@ endif()
 if(USE_CPM)
     message(STATUS "Using CPM")
     include(CPM)
-    CPMAddPackage("gh:nlohmann/json#v3.11.2")
-    CPMAddPackage("gh:fmtlib/fmt#9.1.0")
-    CPMAddPackage("gh:gabime/spdlog#v1.11.0")
+    CPMAddPackage("gh:nlohmann/json#v3.11.3")
+    CPMAddPackage("gh:fmtlib/fmt#10.2.1")
+    CPMAddPackage("gh:gabime/spdlog#v1.13.0")
     CPMAddPackage("gh:jarro2783/cxxopts#v3.1.1")
     CPMAddPackage("gh:catchorg/Catch2#v2.13.9")
 else()
@@ -52,21 +52,21 @@ else()
     FetchContent_Declare(
         nlohmann_json
         GIT_REPOSITORY https://github.com/nlohmann/json
-        GIT_TAG v3.11.2
+        GIT_TAG v3.11.3
         GIT_SHALLOW TRUE)
     FetchContent_MakeAvailable(nlohmann_json)
 
     FetchContent_Declare(
         fmt
         GIT_REPOSITORY https://github.com/fmtlib/fmt
-        GIT_TAG 9.1.0
+        GIT_TAG 10.2.1
         GIT_SHALLOW TRUE)
     FetchContent_MakeAvailable(fmt)
 
     FetchContent_Declare(
         spdlog
         GIT_REPOSITORY https://github.com/gabime/spdlog
-        GIT_TAG v1.11.0
+        GIT_TAG v1.13.0
         GIT_SHALLOW TRUE)
     FetchContent_MakeAvailable(spdlog)
 
