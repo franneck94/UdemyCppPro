@@ -179,3 +179,36 @@ When the command must be executed always the target is built.
 
 - When is a good idea to use add_custom_command?  
 Always we want to run the command when is needed: if we need to generate a file (or more) or regenerate it if something changed in the source folder.
+
+- When is a good idea to use execute_process?  
+Running a command at configure time.
+
+## Macros vs Functions
+
+The only difference between a function and a macro is scope; macros don't have one.  
+So, if you set a variable in a function and want it to be visible outside, you'll need PARENT_SCOPE.
+
+## Generator Expressions
+
+Generator expressions are evaluated during build system generation to produce information specific to each build configuration. They have the form $<...>.
+
+Most generator-expressions in the wild will contain a conditional component.  
+This is due to the fact that generator-expressions can replace if-else statements in properties context.
+
+A conditional expression boils down to the following form:
+
+```cmake
+$<condition:value-if-true>
+```
+
+The result of the entire conditional expression is value-if-true if the condition evaluates to 1, and an empty string otherwise.
+
+```cmake
+add_compile_options("$<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:DEBUG>>:/MDd>")
+
+add_library(Foo ...)
+target_link_options(Foo
+    PRIVATE
+        $<$<CONFIG:Debug>:--coverage>
+)
+```
