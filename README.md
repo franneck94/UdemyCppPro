@@ -11,3 +11,7 @@ With a purchase via my discount codes I receive 95% of the revenue and so you ca
 Link to my German courses: [Link](https://github.com/franneck94/YoutubeVideos/blob/main/README.md)
 
 Link to my English courses: [Link](https://github.com/franneck94/YoutubeVideos/blob/main/EnglishCourses.md)
+
+## CMake README
+
+The link to the CMake Readme is [here](./Chapter03/README.md)

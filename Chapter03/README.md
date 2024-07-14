@@ -190,25 +190,25 @@ So, if you set a variable in a function and want it to be visible outside, you'l
 
 ## Generator Expressions
 
-Generator expressions are evaluated during build system generation to produce information specific to each build configuration. They have the form $<...>.
+Using generator expressions one can configure the project differently for different build types in multi-configuration generators.  
+For such generators the project is configured (with running cmake) once, but can be built for several build types after that. Example of such generators is Visual Studio.
 
-Most generator-expressions in the wild will contain a conditional component.  
-This is due to the fact that generator-expressions can replace if-else statements in properties context.
-
-A conditional expression boils down to the following form:
+For multiconfiguration generators CMAKE_BUILD_TYPE is not known at configuration stage.  
+Because of that using if-else switching doesn't work:
 
 ```cmake
-$<condition:value-if-true>
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+    add_compile_definitions("/W4 /Wx")
+elif(CMAKE_BUILD_TYPE STREQUAL "Release")
+    add_compile_definitions("/W4")
+endif()
 ```
 
-The result of the entire conditional expression is value-if-true if the condition evaluates to 1, and an empty string otherwise.
+But using conditional generator expressions works:
 
 ```cmake
-add_compile_options("$<$<AND:$<CXX_COMPILER_ID:MSVC>,$<CONFIG:DEBUG>>:/MDd>")
-
-add_library(Foo ...)
-target_link_options(Foo
-    PRIVATE
-        $<$<CONFIG:Debug>:--coverage>
+add_compile_definitions(
+    $<$<CONFIG:Debug>:/W4 /Wx>
+    $<$<CONFIG:Release>:/W4>
 )
 ```
