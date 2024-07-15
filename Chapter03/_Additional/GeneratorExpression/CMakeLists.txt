@@ -31,6 +31,7 @@ target_include_directories(${LIBRARY_NAME} PUBLIC inc/)
 #         ${LIBRARY_NAME} PRIVATE $<$<CONFIG:Debug>:-Wall>
 #                                 $<$<CONFIG:Release>:-Wall -Werror>)
 # endif()
+
 # if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 #     target_compile_options(${LIBRARY_NAME} PRIVATE $<$<CONFIG:Debug>:/W4>
 #                                                    $<$<CONFIG:Release>:/W4 /WX>)
@@ -40,8 +41,7 @@ target_compile_options(
     ${LIBRARY_NAME}
     PRIVATE
         $<$<AND:$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>,$<CONFIG:Debug>>:-Wall>
-        $<$<AND:$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>,$<CONFIG:Release>>:-Wall -Werror>
-)
+        $<$<AND:$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:GNU>>,$<CONFIG:Release>>:-Wall -Werror>)
 
 target_compile_options(
     ${LIBRARY_NAME}
